@@ -32,9 +32,21 @@ $(document).ready(function () {
     $("button").button();
     $("#toolbar-select-topics").buttonset();
     $("#toolbar-control-topics").buttonset();
-    $("#toolbar-new-torrents").buttonset();
     $("#toolbar-filter-topics").buttonset();
     $("#log_tabs").tabs();
+    $("#tor_download_options").selectmenu({
+        classes: {
+            "ui-selectmenu-button": "ui-button-icon-only tor_download-splitbutton-select"
+        },
+        select: function (event, ui) {
+            if (ui.item.element.attr("class") === "tor_download") {
+                downloadTorrents(ui.item.value);
+            } else if (ui.item.element.attr("class") === "tor_download_by_keepers_list") {
+                downloadTorrentsByKeepersList(ui.item.value);
+            }
+        }
+    });
+    $(".tor_download_dropdown").controlgroup();
 
     // фильтрация раздач, количество сидов
     $("#rule_topics, .filter_rule input[type=text]").spinner({

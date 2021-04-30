@@ -262,6 +262,10 @@ li.menu.ui-tabs-active {
 	vertical-align: middle;
 }
 
+.ui-button-icon-only.tor_download-splitbutton-select {
+	width: 1em;
+}
+
 /* topics result */
 
 .status_info {
